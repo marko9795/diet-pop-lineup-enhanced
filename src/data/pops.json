@@ -1,0 +1,601 @@
+[
+  {
+    "id": "diet-coke",
+    "name": "Diet Coke",
+    "brand": "Coca-Cola",
+    "parentCompany": "The Coca-Cola Company",
+    "caffeine": 46,
+    "calories": 0,
+    "brandColors": {
+      "primary": "#ED1C24",
+      "secondary": "#FFFFFF",
+      "accent": "#000000"
+    },
+    "modelAssets": {
+      "geometry": "/models/standard-can.glb",
+      "texture": "/textures/diet-coke.jpg",
+      "normalMap": "/textures/can-normal.jpg"
+    },
+    "nutritionFacts": {
+      "sodium": 40,
+      "totalCarbs": 0,
+      "sugars": 0
+    }
+  },
+  {
+    "id": "coke-zero",
+    "name": "Coke Zero Sugar",
+    "brand": "Coca-Cola",
+    "parentCompany": "The Coca-Cola Company",
+    "caffeine": 34,
+    "calories": 0,
+    "brandColors": {
+      "primary": "#000000",
+      "secondary": "#ED1C24",
+      "accent": "#FFFFFF"
+    },
+    "modelAssets": {
+      "geometry": "/models/standard-can.glb",
+      "texture": "/textures/coke-zero.jpg",
+      "normalMap": "/textures/can-normal.jpg"
+    },
+    "nutritionFacts": {
+      "sodium": 40,
+      "totalCarbs": 0,
+      "sugars": 0
+    }
+  },
+  {
+    "id": "diet-pepsi",
+    "name": "Diet Pepsi",
+    "brand": "Pepsi",
+    "parentCompany": "PepsiCo",
+    "caffeine": 35,
+    "calories": 0,
+    "brandColors": {
+      "primary": "#004B93",
+      "secondary": "#FFFFFF",
+      "accent": "#ED1C24"
+    },
+    "modelAssets": {
+      "geometry": "/models/standard-can.glb",
+      "texture": "/textures/diet-pepsi.jpg",
+      "normalMap": "/textures/can-normal.jpg"
+    },
+    "nutritionFacts": {
+      "sodium": 35,
+      "totalCarbs": 0,
+      "sugars": 0
+    }
+  },
+
+  {
+    "id": "pepsi-zero",
+    "name": "Pepsi Zero Sugar",
+    "brand": "Pepsi",
+    "parentCompany": "PepsiCo",
+    "caffeine": 69,
+    "calories": 0,
+    "brandColors": {
+      "primary": "#000000",
+      "secondary": "#004B93",
+      "accent": "#FFFFFF"
+    },
+    "modelAssets": {
+      "geometry": "/models/standard-can.glb",
+      "texture": "/textures/pepsi-zero.jpg",
+      "normalMap": "/textures/can-normal.jpg"
+    },
+    "nutritionFacts": {
+      "sodium": 35,
+      "totalCarbs": 0,
+      "sugars": 0
+    }
+  },
+  {
+    "id": "diet-dr-pepper",
+    "name": "Diet Dr Pepper",
+    "brand": "Dr Pepper",
+    "parentCompany": "Keurig Dr Pepper",
+    "caffeine": 41,
+    "calories": 0,
+    "brandColors": {
+      "primary": "#722F37",
+      "secondary": "#FFFFFF",
+      "accent": "#FFD700"
+    },
+    "modelAssets": {
+      "geometry": "/models/standard-can.glb",
+      "texture": "/textures/diet-dr-pepper.jpg",
+      "normalMap": "/textures/can-normal.jpg"
+    },
+    "nutritionFacts": {
+      "sodium": 55,
+      "totalCarbs": 0,
+      "sugars": 0
+    }
+  },
+  {
+    "id": "diet-sprite",
+    "name": "Diet Sprite",
+    "brand": "Sprite",
+    "parentCompany": "The Coca-Cola Company",
+    "caffeine": 0,
+    "calories": 0,
+    "brandColors": {
+      "primary": "#00B04F",
+      "secondary": "#FFFFFF",
+      "accent": "#FFFF00"
+    },
+    "modelAssets": {
+      "geometry": "/models/standard-can.glb",
+      "texture": "/textures/diet-sprite.jpg",
+      "normalMap": "/textures/can-normal.jpg"
+    },
+    "nutritionFacts": {
+      "sodium": 40,
+      "totalCarbs": 0,
+      "sugars": 0
+    }
+  },
+  {
+    "id": "diet-mountain-dew",
+    "name": "Diet Mountain Dew",
+    "brand": "Mountain Dew",
+    "parentCompany": "PepsiCo",
+    "caffeine": 54,
+    "calories": 0,
+    "brandColors": {
+      "primary": "#00FF00",
+      "secondary": "#000000",
+      "accent": "#FFFF00"
+    },
+    "modelAssets": {
+      "geometry": "/models/standard-can.glb",
+      "texture": "/textures/diet-mountain-dew.jpg",
+      "normalMap": "/textures/can-normal.jpg"
+    },
+    "nutritionFacts": {
+      "sodium": 50,
+      "totalCarbs": 0,
+      "sugars": 0
+    }
+  },
+  {
+    "id": "diet-7up",
+    "name": "Diet 7UP",
+    "brand": "7UP",
+    "parentCompany": "Keurig Dr Pepper",
+    "caffeine": 0,
+    "calories": 0,
+    "brandColors": {
+      "primary": "#00B04F",
+      "secondary": "#FFFFFF",
+      "accent": "#ED1C24"
+    },
+    "modelAssets": {
+      "geometry": "/models/standard-can.glb",
+      "texture": "/textures/diet-7up.jpg",
+      "normalMap": "/textures/can-normal.jpg"
+    },
+    "nutritionFacts": {
+      "sodium": 35,
+      "totalCarbs": 0,
+      "sugars": 0
+    }
+  },
+  {
+    "id": "diet-orange-crush",
+    "name": "Diet Orange Crush",
+    "brand": "Crush",
+    "parentCompany": "Keurig Dr Pepper",
+    "caffeine": 0,
+    "calories": 0,
+    "brandColors": {
+      "primary": "#FF6600",
+      "secondary": "#FFFFFF",
+      "accent": "#000000"
+    },
+    "modelAssets": {
+      "geometry": "/models/standard-can.glb",
+      "texture": "/textures/diet-orange-crush.jpg",
+      "normalMap": "/textures/can-normal.jpg"
+    },
+    "nutritionFacts": {
+      "sodium": 40,
+      "totalCarbs": 0,
+      "sugars": 0
+    }
+  },
+  {
+    "id": "diet-a-w-root-beer",
+    "name": "Diet A&W Root Beer",
+    "brand": "A&W",
+    "parentCompany": "Keurig Dr Pepper",
+    "caffeine": 0,
+    "calories": 0,
+    "brandColors": {
+      "primary": "#8B4513",
+      "secondary": "#FFFFFF",
+      "accent": "#FFD700"
+    },
+    "modelAssets": {
+      "geometry": "/models/standard-can.glb",
+      "texture": "/textures/diet-aw-root-beer.jpg",
+      "normalMap": "/textures/can-normal.jpg"
+    },
+    "nutritionFacts": {
+      "sodium": 50,
+      "totalCarbs": 0,
+      "sugars": 0
+    }
+  },
+  {
+    "id": "diet-canada-dry",
+    "name": "Diet Canada Dry Ginger Ale",
+    "brand": "Canada Dry",
+    "parentCompany": "Keurig Dr Pepper",
+    "caffeine": 0,
+    "calories": 0,
+    "brandColors": {
+      "primary": "#00B04F",
+      "secondary": "#FFFFFF",
+      "accent": "#FFD700"
+    },
+    "modelAssets": {
+      "geometry": "/models/standard-can.glb",
+      "texture": "/textures/diet-canada-dry.jpg",
+      "normalMap": "/textures/can-normal.jpg"
+    },
+    "nutritionFacts": {
+      "sodium": 25,
+      "totalCarbs": 0,
+      "sugars": 0
+    }
+  },
+  {
+    "id": "diet-sunkist",
+    "name": "Diet Sunkist Orange",
+    "brand": "Sunkist",
+    "parentCompany": "Keurig Dr Pepper",
+    "caffeine": 41,
+    "calories": 0,
+    "brandColors": {
+      "primary": "#FF6600",
+      "secondary": "#FFFFFF",
+      "accent": "#000000"
+    },
+    "modelAssets": {
+      "geometry": "/models/standard-can.glb",
+      "texture": "/textures/diet-sunkist.jpg",
+      "normalMap": "/textures/can-normal.jpg"
+    },
+    "nutritionFacts": {
+      "sodium": 40,
+      "totalCarbs": 0,
+      "sugars": 0
+    }
+  },
+  {
+    "id": "diet-squirt",
+    "name": "Diet Squirt",
+    "brand": "Squirt",
+    "parentCompany": "Keurig Dr Pepper",
+    "caffeine": 39,
+    "calories": 0,
+    "brandColors": {
+      "primary": "#FFFF00",
+      "secondary": "#00B04F",
+      "accent": "#FFFFFF"
+    },
+    "modelAssets": {
+      "geometry": "/models/standard-can.glb",
+      "texture": "/textures/diet-squirt.jpg",
+      "normalMap": "/textures/can-normal.jpg"
+    },
+    "nutritionFacts": {
+      "sodium": 40,
+      "totalCarbs": 0,
+      "sugars": 0
+    }
+  },
+  {
+    "id": "diet-mug-root-beer",
+    "name": "Diet Mug Root Beer",
+    "brand": "Mug",
+    "parentCompany": "PepsiCo",
+    "caffeine": 0,
+    "calories": 0,
+    "brandColors": {
+      "primary": "#8B4513",
+      "secondary": "#FFFFFF",
+      "accent": "#FFD700"
+    },
+    "modelAssets": {
+      "geometry": "/models/standard-can.glb",
+      "texture": "/textures/diet-mug-root-beer.jpg",
+      "normalMap": "/textures/can-normal.jpg"
+    },
+    "nutritionFacts": {
+      "sodium": 45,
+      "totalCarbs": 0,
+      "sugars": 0
+    }
+  },
+  {
+    "id": "diet-sierra-mist",
+    "name": "Diet Sierra Mist",
+    "brand": "Sierra Mist",
+    "parentCompany": "PepsiCo",
+    "caffeine": 0,
+    "calories": 0,
+    "brandColors": {
+      "primary": "#00B04F",
+      "secondary": "#FFFFFF",
+      "accent": "#FFFF00"
+    },
+    "modelAssets": {
+      "geometry": "/models/standard-can.glb",
+      "texture": "/textures/diet-sierra-mist.jpg",
+      "normalMap": "/textures/can-normal.jpg"
+    },
+    "nutritionFacts": {
+      "sodium": 35,
+      "totalCarbs": 0,
+      "sugars": 0
+    }
+  },
+  {
+    "id": "diet-fanta-orange",
+    "name": "Diet Fanta Orange",
+    "brand": "Fanta",
+    "parentCompany": "The Coca-Cola Company",
+    "caffeine": 0,
+    "calories": 0,
+    "brandColors": {
+      "primary": "#FF6600",
+      "secondary": "#FFFFFF",
+      "accent": "#000000"
+    },
+    "modelAssets": {
+      "geometry": "/models/standard-can.glb",
+      "texture": "/textures/diet-fanta-orange.jpg",
+      "normalMap": "/textures/can-normal.jpg"
+    },
+    "nutritionFacts": {
+      "sodium": 40,
+      "totalCarbs": 0,
+      "sugars": 0
+    }
+  },
+  {
+    "id": "diet-barqs-root-beer",
+    "name": "Diet Barq's Root Beer",
+    "brand": "Barq's",
+    "parentCompany": "The Coca-Cola Company",
+    "caffeine": 23,
+    "calories": 0,
+    "brandColors": {
+      "primary": "#8B4513",
+      "secondary": "#FFFFFF",
+      "accent": "#ED1C24"
+    },
+    "modelAssets": {
+      "geometry": "/models/standard-can.glb",
+      "texture": "/textures/diet-barqs-root-beer.jpg",
+      "normalMap": "/textures/can-normal.jpg"
+    },
+    "nutritionFacts": {
+      "sodium": 40,
+      "totalCarbs": 0,
+      "sugars": 0
+    }
+  },
+  {
+    "id": "diet-cherry-coke",
+    "name": "Diet Cherry Coke",
+    "brand": "Coca-Cola",
+    "parentCompany": "The Coca-Cola Company",
+    "caffeine": 46,
+    "calories": 0,
+    "brandColors": {
+      "primary": "#8B0000",
+      "secondary": "#FFFFFF",
+      "accent": "#ED1C24"
+    },
+    "modelAssets": {
+      "geometry": "/models/standard-can.glb",
+      "texture": "/textures/diet-cherry-coke.jpg",
+      "normalMap": "/textures/can-normal.jpg"
+    },
+    "nutritionFacts": {
+      "sodium": 40,
+      "totalCarbs": 0,
+      "sugars": 0
+    }
+  },
+  {
+    "id": "diet-wild-cherry-pepsi",
+    "name": "Diet Wild Cherry Pepsi",
+    "brand": "Pepsi",
+    "parentCompany": "PepsiCo",
+    "caffeine": 35,
+    "calories": 0,
+    "brandColors": {
+      "primary": "#8B0000",
+      "secondary": "#FFFFFF",
+      "accent": "#004B93"
+    },
+    "modelAssets": {
+      "geometry": "/models/standard-can.glb",
+      "texture": "/textures/diet-wild-cherry-pepsi.jpg",
+      "normalMap": "/textures/can-normal.jpg"
+    },
+    "nutritionFacts": {
+      "sodium": 35,
+      "totalCarbs": 0,
+      "sugars": 0
+    }
+  },
+  {
+    "id": "diet-cherry-dr-pepper",
+    "name": "Diet Cherry Dr Pepper",
+    "brand": "Dr Pepper",
+    "parentCompany": "Keurig Dr Pepper",
+    "caffeine": 41,
+    "calories": 0,
+    "brandColors": {
+      "primary": "#8B0000",
+      "secondary": "#FFFFFF",
+      "accent": "#722F37"
+    },
+    "modelAssets": {
+      "geometry": "/models/standard-can.glb",
+      "texture": "/textures/diet-cherry-dr-pepper.jpg",
+      "normalMap": "/textures/can-normal.jpg"
+    },
+    "nutritionFacts": {
+      "sodium": 55,
+      "totalCarbs": 0,
+      "sugars": 0
+    }
+  },
+  {
+    "id": "diet-vanilla-coke",
+    "name": "Diet Vanilla Coke",
+    "brand": "Coca-Cola",
+    "parentCompany": "The Coca-Cola Company",
+    "caffeine": 46,
+    "calories": 0,
+    "brandColors": {
+      "primary": "#F5DEB3",
+      "secondary": "#ED1C24",
+      "accent": "#000000"
+    },
+    "modelAssets": {
+      "geometry": "/models/standard-can.glb",
+      "texture": "/textures/diet-vanilla-coke.jpg",
+      "normalMap": "/textures/can-normal.jpg"
+    },
+    "nutritionFacts": {
+      "sodium": 40,
+      "totalCarbs": 0,
+      "sugars": 0
+    }
+  },
+  {
+    "id": "diet-grape-fanta",
+    "name": "Diet Grape Fanta",
+    "brand": "Fanta",
+    "parentCompany": "The Coca-Cola Company",
+    "caffeine": 0,
+    "calories": 0,
+    "brandColors": {
+      "primary": "#800080",
+      "secondary": "#FFFFFF",
+      "accent": "#000000"
+    },
+    "modelAssets": {
+      "geometry": "/models/standard-can.glb",
+      "texture": "/textures/diet-grape-fanta.jpg",
+      "normalMap": "/textures/can-normal.jpg"
+    },
+    "nutritionFacts": {
+      "sodium": 40,
+      "totalCarbs": 0,
+      "sugars": 0
+    }
+  },
+  {
+    "id": "diet-ginger-ale-schweppes",
+    "name": "Diet Schweppes Ginger Ale",
+    "brand": "Schweppes",
+    "parentCompany": "Keurig Dr Pepper",
+    "caffeine": 0,
+    "calories": 0,
+    "brandColors": {
+      "primary": "#FFD700",
+      "secondary": "#000000",
+      "accent": "#FFFFFF"
+    },
+    "modelAssets": {
+      "geometry": "/models/standard-can.glb",
+      "texture": "/textures/diet-schweppes-ginger-ale.jpg",
+      "normalMap": "/textures/can-normal.jpg"
+    },
+    "nutritionFacts": {
+      "sodium": 25,
+      "totalCarbs": 0,
+      "sugars": 0
+    }
+  },
+  {
+    "id": "diet-tonic-water-schweppes",
+    "name": "Diet Schweppes Tonic Water",
+    "brand": "Schweppes",
+    "parentCompany": "Keurig Dr Pepper",
+    "caffeine": 0,
+    "calories": 0,
+    "brandColors": {
+      "primary": "#0066CC",
+      "secondary": "#FFFFFF",
+      "accent": "#FFD700"
+    },
+    "modelAssets": {
+      "geometry": "/models/standard-can.glb",
+      "texture": "/textures/diet-schweppes-tonic.jpg",
+      "normalMap": "/textures/can-normal.jpg"
+    },
+    "nutritionFacts": {
+      "sodium": 35,
+      "totalCarbs": 0,
+      "sugars": 0
+    }
+  },
+  {
+    "id": "diet-cream-soda-aw",
+    "name": "Diet A&W Cream Soda",
+    "brand": "A&W",
+    "parentCompany": "Keurig Dr Pepper",
+    "caffeine": 0,
+    "calories": 0,
+    "brandColors": {
+      "primary": "#F5DEB3",
+      "secondary": "#8B4513",
+      "accent": "#FFFFFF"
+    },
+    "modelAssets": {
+      "geometry": "/models/standard-can.glb",
+      "texture": "/textures/diet-aw-cream-soda.jpg",
+      "normalMap": "/textures/can-normal.jpg"
+    },
+    "nutritionFacts": {
+      "sodium": 50,
+      "totalCarbs": 0,
+      "sugars": 0
+    }
+  },
+  {
+    "id": "diet-code-red-mountain-dew",
+    "name": "Diet Mountain Dew Code Red",
+    "brand": "Mountain Dew",
+    "parentCompany": "PepsiCo",
+    "caffeine": 54,
+    "calories": 0,
+    "brandColors": {
+      "primary": "#FF0000",
+      "secondary": "#000000",
+      "accent": "#FFFFFF"
+    },
+    "modelAssets": {
+      "geometry": "/models/standard-can.glb",
+      "texture": "/textures/diet-mountain-dew-code-red.jpg",
+      "normalMap": "/textures/can-normal.jpg"
+    },
+    "nutritionFacts": {
+      "sodium": 50,
+      "totalCarbs": 0,
+      "sugars": 0
+    }
+  }
+]

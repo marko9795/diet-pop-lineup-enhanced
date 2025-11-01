@@ -1,0 +1,128 @@
+[
+  {
+    "id": "lw1",
+    "name": "Left Wing",
+    "line": 1,
+    "type": "forward",
+    "coordinates": { "x": 1, "y": 1 }
+  },
+  {
+    "id": "c1",
+    "name": "Center",
+    "line": 1,
+    "type": "forward",
+    "coordinates": { "x": 2, "y": 1 }
+  },
+  {
+    "id": "rw1",
+    "name": "Right Wing",
+    "line": 1,
+    "type": "forward",
+    "coordinates": { "x": 3, "y": 1 }
+  },
+  {
+    "id": "lw2",
+    "name": "Left Wing",
+    "line": 2,
+    "type": "forward",
+    "coordinates": { "x": 1, "y": 2 }
+  },
+  {
+    "id": "c2",
+    "name": "Center",
+    "line": 2,
+    "type": "forward",
+    "coordinates": { "x": 2, "y": 2 }
+  },
+  {
+    "id": "rw2",
+    "name": "Right Wing",
+    "line": 2,
+    "type": "forward",
+    "coordinates": { "x": 3, "y": 2 }
+  },
+  {
+    "id": "lw3",
+    "name": "Left Wing",
+    "line": 3,
+    "type": "forward",
+    "coordinates": { "x": 1, "y": 3 }
+  },
+  {
+    "id": "c3",
+    "name": "Center",
+    "line": 3,
+    "type": "forward",
+    "coordinates": { "x": 2, "y": 3 }
+  },
+  {
+    "id": "rw3",
+    "name": "Right Wing",
+    "line": 3,
+    "type": "forward",
+    "coordinates": { "x": 3, "y": 3 }
+  },
+  {
+    "id": "lw4",
+    "name": "Left Wing",
+    "line": 4,
+    "type": "forward",
+    "coordinates": { "x": 1, "y": 4 }
+  },
+  {
+    "id": "c4",
+    "name": "Center",
+    "line": 4,
+    "type": "forward",
+    "coordinates": { "x": 2, "y": 4 }
+  },
+  {
+    "id": "rw4",
+    "name": "Right Wing",
+    "line": 4,
+    "type": "forward",
+    "coordinates": { "x": 3, "y": 4 }
+  },
+  {
+    "id": "ld1",
+    "name": "Left Defense",
+    "line": 1,
+    "type": "defense",
+    "coordinates": { "x": 1, "y": 5 }
+  },
+  {
+    "id": "rd1",
+    "name": "Right Defense",
+    "line": 1,
+    "type": "defense",
+    "coordinates": { "x": 3, "y": 5 }
+  },
+  {
+    "id": "ld2",
+    "name": "Left Defense",
+    "line": 2,
+    "type": "defense",
+    "coordinates": { "x": 1, "y": 6 }
+  },
+  {
+    "id": "rd2",
+    "name": "Right Defense",
+    "line": 2,
+    "type": "defense",
+    "coordinates": { "x": 3, "y": 6 }
+  },
+  {
+    "id": "ld3",
+    "name": "Left Defense",
+    "line": 3,
+    "type": "defense",
+    "coordinates": { "x": 1, "y": 7 }
+  },
+  {
+    "id": "rd3",
+    "name": "Right Defense",
+    "line": 3,
+    "type": "defense",
+    "coordinates": { "x": 3, "y": 7 }
+  }
+]
