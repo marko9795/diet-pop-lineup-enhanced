@@ -1,10 +1,14 @@
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
+import { persist, subscribeWithSelector } from 'zustand/middleware';
 import { UserLineup } from '../types';
 
 interface LineupState {
   currentLineup: UserLineup;
   assignments: Record<string, string>; // positionId -> popId
+  // Memory optimization
+  _lastCleanup: number;
+  _changeCount: number;
+  
   assignPopToPosition: (positionId: string, popId: string) => void;
   removePopFromPosition: (positionId: string) => void;
   clearLineup: () => void;
@@ -12,6 +16,10 @@ interface LineupState {
   getAssignedPop: (positionId: string) => string | undefined;
   isPositionOccupied: (positionId: string) => boolean;
   getAssignedPositions: () => string[];
+  
+  // Memory management
+  _cleanup: () => void;
+  _shouldCleanup: () => boolean;
 }
 
 const createDefaultLineup = (): UserLineup => ({
@@ -23,10 +31,13 @@ const createDefaultLineup = (): UserLineup => ({
 });
 
 export const useLineupStore = create<LineupState>()(
-  persist(
-    (set, get) => ({
-      currentLineup: createDefaultLineup(),
-      assignments: {},
+  subscribeWithSelector(
+    persist(
+      (set, get) => ({
+        currentLineup: createDefaultLineup(),
+        assignments: {},
+        _lastCleanup: Date.now(),
+        _changeCount: 0,
 
       assignPopToPosition: (positionId: string, popId: string) => {
         set((state) => {
@@ -37,10 +48,18 @@ export const useLineupStore = create<LineupState>()(
             updatedAt: new Date(),
           };
           
-          return {
+          const newState = {
             assignments: newAssignments,
             currentLineup: updatedLineup,
+            _changeCount: state._changeCount + 1,
           };
+
+          // Trigger cleanup if needed
+          if (get()._shouldCleanup()) {
+            setTimeout(() => get()._cleanup(), 0);
+          }
+          
+          return newState;
         });
       },
 
@@ -98,6 +117,24 @@ export const useLineupStore = create<LineupState>()(
       getAssignedPositions: () => {
         return Object.keys(get().assignments);
       },
+
+      _cleanup: () => {
+        set(() => ({
+          _lastCleanup: Date.now(),
+          _changeCount: 0,
+        }));
+        
+        // Force garbage collection if available
+        if ('gc' in window && typeof (window as any).gc === 'function') {
+          (window as any).gc();
+        }
+      },
+
+      _shouldCleanup: () => {
+        const state = get();
+        const timeSinceLastCleanup = Date.now() - state._lastCleanup;
+        return state._changeCount > 50 || timeSinceLastCleanup > 300000; // 5 minutes
+      },
     }),
     {
       name: 'lineup-storage',
@@ -105,6 +142,14 @@ export const useLineupStore = create<LineupState>()(
         currentLineup: state.currentLineup,
         assignments: state.assignments,
       }),
+      // Optimize storage writes
+      merge: (persistedState: any, currentState: LineupState) => ({
+        ...currentState,
+        ...persistedState,
+        _lastCleanup: Date.now(),
+        _changeCount: 0,
+      }),
     }
+  )
   )
 );

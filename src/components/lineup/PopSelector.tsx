@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { HockeyPosition, Pop } from '../../types';
 import { usePopStore } from '../../stores/popStore';
 import { useLineupStore } from '../../stores/lineupStore';
+import { useResponsive } from '../../hooks/useResponsive';
 
 interface PopSelectorProps {
   isOpen: boolean;
@@ -32,6 +33,7 @@ export const PopSelector: React.FC<PopSelectorProps> = ({
   const [localSearchTerm, setLocalSearchTerm] = useState('');
   const availableBrands = getAvailableBrands();
   const currentAssignedPopId = selectedPosition ? getAssignedPop(selectedPosition.id) : undefined;
+  const { isMobile, isTablet } = useResponsive();
 
   useEffect(() => {
     setSearchTerm(localSearchTerm);
@@ -58,23 +60,35 @@ export const PopSelector: React.FC<PopSelectorProps> = ({
 
   if (!isOpen || !selectedPosition) return null;
 
+  const modalClasses = isMobile
+    ? "bg-white rounded-t-xl shadow-2xl w-full h-full max-h-[95vh] overflow-hidden"
+    : "bg-white rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden";
+
+  const containerClasses = isMobile
+    ? "fixed inset-0 bg-black bg-opacity-50 flex items-end justify-center z-50"
+    : "fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4";
+
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden">
+    <div className={containerClasses}>
+      <div className={modalClasses}>
         {/* Header */}
-        <div className="bg-gray-50 px-6 py-4 border-b">
+        <div className={`bg-gray-50 border-b ${isMobile ? 'px-4 py-3' : 'px-6 py-4'}`}>
           <div className="flex items-center justify-between">
-            <div>
-              <h2 className="text-xl font-bold text-gray-800">
-                Select Pop for {selectedPosition.name}
+            <div className="flex-1 min-w-0">
+              <h2 className={`font-bold text-gray-800 ${
+                isMobile ? 'text-lg truncate' : 'text-xl'
+              }`}>
+                {isMobile ? selectedPosition.name : `Select Pop for ${selectedPosition.name}`}
               </h2>
-              <p className="text-sm text-gray-600">
+              <p className={`text-gray-600 ${isMobile ? 'text-xs' : 'text-sm'}`}>
                 Line {selectedPosition.line} • {selectedPosition.type}
               </p>
             </div>
             <button
               onClick={onClose}
-              className="text-gray-400 hover:text-gray-600 text-2xl font-bold"
+              className={`text-gray-400 hover:text-gray-600 font-bold ml-2 ${
+                isMobile ? 'text-xl' : 'text-2xl'
+              }`}
             >
               ×
             </button>
@@ -83,14 +97,18 @@ export const PopSelector: React.FC<PopSelectorProps> = ({
 
         {/* Current Assignment */}
         {currentAssignedPopId && (
-          <div className="px-6 py-3 bg-blue-50 border-b">
+          <div className={`bg-blue-50 border-b ${isMobile ? 'px-4 py-2' : 'px-6 py-3'}`}>
             <div className="flex items-center justify-between">
-              <span className="text-sm text-blue-700">
-                Currently assigned: <strong>{filteredPops.find(p => p.id === currentAssignedPopId)?.name}</strong>
+              <span className={`text-blue-700 ${isMobile ? 'text-xs' : 'text-sm'}`}>
+                Currently: <strong className={isMobile ? 'truncate max-w-32' : ''}>
+                  {filteredPops.find(p => p.id === currentAssignedPopId)?.name}
+                </strong>
               </span>
               <button
                 onClick={handleRemovePop}
-                className="text-red-600 hover:text-red-800 text-sm font-medium"
+                className={`text-red-600 hover:text-red-800 font-medium ${
+                  isMobile ? 'text-xs' : 'text-sm'
+                }`}
               >
                 Remove
               </button>
@@ -99,21 +117,25 @@ export const PopSelector: React.FC<PopSelectorProps> = ({
         )}
 
         {/* Search and Filters */}
-        <div className="px-6 py-4 border-b bg-gray-50">
-          <div className="flex flex-col space-y-4">
+        <div className={`border-b bg-gray-50 ${isMobile ? 'px-4 py-3' : 'px-6 py-4'}`}>
+          <div className={`flex flex-col ${isMobile ? 'space-y-3' : 'space-y-4'}`}>
             {/* Search Bar */}
             <div className="relative">
               <input
                 type="text"
-                placeholder="Search pops by name, brand, or company..."
+                placeholder={isMobile ? "Search pops..." : "Search pops by name, brand, or company..."}
                 value={localSearchTerm}
                 onChange={(e) => setLocalSearchTerm(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className={`w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                  isMobile ? 'px-3 py-2 text-sm' : 'px-4 py-2'
+                }`}
               />
               {localSearchTerm && (
                 <button
                   onClick={() => setLocalSearchTerm('')}
-                  className="absolute right-3 top-2.5 text-gray-400 hover:text-gray-600"
+                  className={`absolute right-3 text-gray-400 hover:text-gray-600 ${
+                    isMobile ? 'top-2' : 'top-2.5'
+                  }`}
                 >
                   ×
                 </button>
@@ -122,12 +144,18 @@ export const PopSelector: React.FC<PopSelectorProps> = ({
 
             {/* Brand Filters */}
             <div className="flex flex-wrap gap-2">
-              <span className="text-sm font-medium text-gray-700 self-center">Brands:</span>
-              {availableBrands.map((brand) => (
+              <span className={`font-medium text-gray-700 self-center ${
+                isMobile ? 'text-xs' : 'text-sm'
+              }`}>
+                {isMobile ? 'Brands:' : 'Brands:'}
+              </span>
+              {availableBrands.slice(0, isMobile ? 4 : availableBrands.length).map((brand) => (
                 <button
                   key={brand}
                   onClick={() => toggleBrand(brand)}
-                  className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
+                  className={`rounded-full font-medium transition-colors ${
+                    isMobile ? 'px-2 py-1 text-xs' : 'px-3 py-1 text-sm'
+                  } ${
                     selectedBrands.includes(brand)
                       ? 'bg-blue-500 text-white'
                       : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
@@ -136,12 +164,19 @@ export const PopSelector: React.FC<PopSelectorProps> = ({
                   {brand}
                 </button>
               ))}
+              {isMobile && availableBrands.length > 4 && (
+                <span className="text-xs text-gray-500 self-center">
+                  +{availableBrands.length - 4} more
+                </span>
+              )}
               {(localSearchTerm || selectedBrands.length > 0) && (
                 <button
                   onClick={handleClearFilters}
-                  className="px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-700 hover:bg-red-200"
+                  className={`rounded-full font-medium bg-red-100 text-red-700 hover:bg-red-200 ${
+                    isMobile ? 'px-2 py-1 text-xs' : 'px-3 py-1 text-sm'
+                  }`}
                 >
-                  Clear All
+                  Clear
                 </button>
               )}
             </div>
@@ -149,24 +184,38 @@ export const PopSelector: React.FC<PopSelectorProps> = ({
         </div>
 
         {/* Pop Grid */}
-        <div className="flex-1 overflow-y-auto p-6">
+        <div className={`flex-1 overflow-y-auto ${isMobile ? 'p-4' : 'p-6'}`}>
           {filteredPops.length === 0 ? (
-            <div className="text-center py-12">
-              <div className="text-gray-400 text-lg mb-2">No pops found</div>
-              <p className="text-gray-500">Try adjusting your search or filters</p>
+            <div className={`text-center ${isMobile ? 'py-8' : 'py-12'}`}>
+              <div className={`text-gray-400 mb-2 ${isMobile ? 'text-base' : 'text-lg'}`}>
+                No pops found
+              </div>
+              <p className={`text-gray-500 ${isMobile ? 'text-sm' : 'text-base'}`}>
+                Try adjusting your search or filters
+              </p>
             </div>
           ) : (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div className={`grid gap-3 ${
+              isMobile 
+                ? 'grid-cols-2' 
+                : isTablet 
+                ? 'grid-cols-3' 
+                : 'grid-cols-4'
+            }`}>
               {filteredPops.map((pop) => (
                 <div
                   key={pop.id}
                   onClick={() => handlePopSelect(pop)}
-                  className="bg-white border border-gray-200 rounded-lg p-4 cursor-pointer hover:shadow-md hover:border-blue-300 transition-all duration-200"
+                  className={`bg-white border border-gray-200 rounded-lg cursor-pointer hover:shadow-md hover:border-blue-300 transition-all duration-200 active:scale-95 ${
+                    isMobile ? 'p-3' : 'p-4'
+                  }`}
                 >
                   {/* Pop Can Visual */}
-                  <div className="flex justify-center mb-3">
+                  <div className={`flex justify-center ${isMobile ? 'mb-2' : 'mb-3'}`}>
                     <div
-                      className="w-12 h-16 rounded-sm border-2"
+                      className={`rounded-sm border-2 ${
+                        isMobile ? 'w-10 h-14' : 'w-12 h-16'
+                      }`}
                       style={{
                         backgroundColor: pop.brandColors.primary,
                         borderColor: pop.brandColors.secondary,
@@ -176,14 +225,26 @@ export const PopSelector: React.FC<PopSelectorProps> = ({
                   
                   {/* Pop Info */}
                   <div className="text-center">
-                    <h3 className="font-medium text-gray-800 text-sm mb-1 leading-tight">
-                      {pop.name}
+                    <h3 className={`font-medium text-gray-800 mb-1 leading-tight ${
+                      isMobile ? 'text-xs' : 'text-sm'
+                    }`}>
+                      {isMobile ? pop.name.split(' ').slice(0, 2).join(' ') : pop.name}
                     </h3>
-                    <p className="text-xs text-gray-600 mb-2">{pop.brand}</p>
-                    <div className="flex justify-center space-x-3 text-xs text-gray-500">
+                    <p className={`text-gray-600 mb-2 ${
+                      isMobile ? 'text-xs' : 'text-xs'
+                    }`}>
+                      {pop.brand}
+                    </p>
+                    <div className={`flex justify-center space-x-2 text-gray-500 ${
+                      isMobile ? 'text-xs' : 'text-xs'
+                    }`}>
                       <span>{pop.caffeine}mg</span>
-                      <span>•</span>
-                      <span>{pop.calories} cal</span>
+                      {!isMobile && (
+                        <>
+                          <span>•</span>
+                          <span>{pop.calories} cal</span>
+                        </>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -193,14 +254,18 @@ export const PopSelector: React.FC<PopSelectorProps> = ({
         </div>
 
         {/* Footer */}
-        <div className="px-6 py-4 bg-gray-50 border-t">
-          <div className="flex justify-between items-center text-sm text-gray-600">
+        <div className={`bg-gray-50 border-t ${isMobile ? 'px-4 py-3' : 'px-6 py-4'}`}>
+          <div className={`flex justify-between items-center text-gray-600 ${
+            isMobile ? 'text-xs' : 'text-sm'
+          }`}>
             <span>{filteredPops.length} pops available</span>
             <button
               onClick={onClose}
-              className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors"
+              className={`bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors ${
+                isMobile ? 'px-3 py-1.5 text-sm' : 'px-4 py-2'
+              }`}
             >
-              Cancel
+              {isMobile ? 'Close' : 'Cancel'}
             </button>
           </div>
         </div>
